@@ -1,4 +1,4 @@
-## GPU Info bot
+## Server Info bot
 
 ### Setup
 
