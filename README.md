@@ -42,4 +42,16 @@ python serverstatus_client.py
 ### Improvements
 
 - Show running processes.
+```python
+for proc in nvmlDeviceGetComputeRunningProcesses(handle):
+   print(
+      "pid %d using %d bytes of memory on device %d."
+      % (proc.pid, proc.usedGpuMemory, dev_id)
+   )
+   proc_stat_file = os.stat("/proc/%d" % pid)
+   # get UID via stat call
+   uid = proc_stat_file.st_uid
+   # look up the username from uid
+   username = pwd.getpwuid(uid)[0]
+```
 - As of now, it just assumes NVidia GPU and the presence of `nvidia-smi`.
